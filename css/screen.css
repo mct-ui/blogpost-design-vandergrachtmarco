@@ -1,20 +1,23 @@
 /*
-    Fonts
-    ---
-    @font-face declaration
-*/
 
+    Font faces
+
+
+*/
 @font-face{
-    font-family: "Inter Web";
+    font-family: "Inter web";
     font-weight: 400;
     src: url("../fonts/Inter-Regular.woff2") format("woff2");
 }
 
 @font-face{
-    font-family: "Inter Web";
+    font-family: "Inter web";
     font-weight: 700;
     src: url("../fonts/Inter-Bold.woff2") format("woff2");
 }
+
+
+
 
 /*
     Elements: Page
@@ -25,17 +28,17 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: "Inter Web", Helvetica, arial, sans-serif;
+    font-family: "Droid-Serif", Helvetica, arial, sans-serif;
     color: #5C6366;
-    padding: 48px 24px 24px;
+    box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-    max-width: 42em;
-    margin: 0 auto;
+* ,*::before, *::after  {
+    box-sizing: inherit;
 }
+
 
 /*
  * Remove text-shadow in selection highlight:
@@ -45,7 +48,7 @@ body {
  */
 
 ::selection {
-    background: #00A1E6;
+    background: #B3E8FF;
     color: white;
     text-shadow: none;
 }
@@ -67,12 +70,13 @@ img {
     Default markup for typographic elements
 */
 
-h1, h2, h3{
-    color: #17181A;
+h1, h2, h3 {
+    color:#17181A;
+    font-family: "Inter web", Helvetica, arial, sans-serif;
 }
 
 h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 36px;
     font-weight: normal;
     line-height: 40px;
@@ -85,8 +89,10 @@ h2 {
     margin: 0 0 24px;
 }
 
-*+h2{
-    margin-top: 48px;
+* + h2 {
+
+    margin-top: 24px;
+
 }
 
 h3 {
@@ -159,45 +165,88 @@ a:visited,
 a:active,
 a:hover,
 a:focus {
-    color: #00E6A1;
+    color: #1AFFBA;
 }
 
 /*
-    Components: Author
+
+    Component
+
+
 */
 
+
 .c-author{
-        display: flex;
-    align-items: center;
+    display:flex;
+    align-items: center ;
 }
-
-.c-author__image{
-    width: 56px;
-    height: 56px;
-    border-radius: 100%;
-}
-
-.c-author__name,
-.c-author__meta{
+.c-author__name, .c-author__title{
     margin-bottom: 0;
 }
 
-.c-author__meta{
-    font-size: 14px;
-    font-family: "inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 24px;
-}
+.c-author__avatar {
 
-.c-author__name{
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.c-author__image{
     width: 56px;
     height: 56px;
     border-radius: 100%;
     margin-right: 16px;
+}
+.c-author__name{
+    font-size: 16px;
+    line-height: 24px;
+}
+.c-author__title{
+    font-size: 14px;
+    line-height: 20px;
+    font-family: "Inter web", Helvetica, arial, sans-serif;
+}
+
+/*
+
+    article
+
+*/
+
+
+.c-article__header, .c-article__body {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.c-article__header{
+    padding: 24px 24px 0;
+}
+
+.c-article__body {
+    padding: 0 24px;
+}
+@media (min-width: 992px){
+    .c-article__body{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .c-article__aside{
+        width: 25%;
+        padding-right: 24px;
+    }
+    .c-article__content{
+        width: 75%;
+    }
+}
+
+@media (min-width: 768px){
+    .c-article__header{
+        padding: 48px 48px 24px;
+    }
+
+
+    .c-article__body{
+        padding: 48px 48px 24px;
+    }
+
+    .c-article__aside {
+        margin-bottom: 48px;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -207,9 +256,6 @@ a:focus {
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-    html {
-        padding: 48px 48px 24px;
-    }
     h1 {
         font-size: 58px;
         line-height: 64px;
